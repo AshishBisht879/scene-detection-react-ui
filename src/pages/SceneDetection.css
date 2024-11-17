@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html, body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+}
+
+.scene-detection {
+  text-align: center;
+  margin: 0px;
+  position: relative;
+}
+
+h1 {
+  margin: 1px;
+  font-size: 30px;
+  color: #333;
+  padding: 10px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+.loading {
+  font-size: 20px;
+}
+
+.dropdown-container {
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.dropdown-container.center {
+  top: 150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dropdown-container.top-right {
+  top: 10px;
+  right: 10px;
+  transform: translate(0, 0);
+}
