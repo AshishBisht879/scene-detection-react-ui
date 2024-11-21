@@ -1,0 +1,46 @@
+.scene_intro_list{
+    padding: 10px;
+}
+
+/* .scene_list_container{
+    height: 100%;
+    overflow-y: auto;
+    display: block;
+} */
+
+.scene_item{
+    padding:10px;
+    text-align: start;
+    position: relative;
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+span{
+  margin: 4px;
+}
+
+
+.scene_item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+
+.highlight{
+    background-color: #e3f2fd;
+  border-left: 3px solid #007bff;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+
+@media (max-width: 768px) { /* Adjust the breakpoint as needed */
+    .scene_item {
+      flex-direction: column;
+    }
+  }

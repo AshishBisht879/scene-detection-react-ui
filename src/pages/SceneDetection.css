@@ -37,7 +37,6 @@ h2 {
 }
 
 .dropdown-container.center {
-  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -47,3 +46,42 @@ h2 {
   right: 10px;
   transform: translate(0, 0);
 }
+
+.main_body_content {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 90vh;
+}
+
+.video_and_scene_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #ffffff;
+}
+
+.sceneList {
+  padding: 10px;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 20%;
+}
+.scene_info_container {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+}
+.video_container {
+  flex: 1;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  /* Optional: Hide overflowing content */
+  overflow: hidden;
+}
+
