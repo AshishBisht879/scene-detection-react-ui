@@ -15,13 +15,19 @@ video {
   display: flex;
  flex-direction: row;
   width: auto;
-  height: 10px; /* Adjust height as needed */
+  height: 10px;
   margin: 3px;
  
 }
 
 .seek_bar_scene {
-  background-color: #ff5733;
-  border-radius: 3px;
-  border: 1px solid #131212; 
+  background-color: #848382;
+  border-left: 1px solid #050505; 
 }
+
+
+
+.seek_bar_scene.active {
+  background-color: lightgreen;
+}
+

@@ -11,7 +11,7 @@ const SceneList = ({ scenes, currentTime,className }) => {
       return hours * 3600 + minutes * 60 + seconds;
     });
 
-    return currentTime >= startTime && currentTime <= endTime;
+    return currentTime >= startTime && currentTime < endTime;
   });
 
   useEffect(() => {
