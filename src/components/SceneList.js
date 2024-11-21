@@ -36,18 +36,18 @@ const SceneList = ({ scenes, currentTime,className }) => {
         <div className="header-row">
           <div className="header-item scene-idx-header">Scene</div>
           {/* <div className="header-item duration-header">Time Duration</div> */}
-          <div className="header-item relevance-header">Relevance Score</div>
           {/* <div className="header-item genre-header">Genre</div> */}
-          <div className="header-item text-keywords-header">Transcript Keywords</div>
-          <div className="header-item image-keywords-header">Image & Text Keywords</div>
+          <div className="header-item text-keywords-header">Scene Context</div>
+          <div className="header-item image-keywords-header">Keywords</div>
+          <div className="header-item relevance-header">Relevance Score</div>
         </div>
         <div className="scene-column" ref={sceneListRef}>
         <div className="scene-item scene-idx">{scenes[currentSceneIndex].SceneIdx}</div>
               {/* <div className="scene-item duration">{scene.Scene}</div> */}
-              <div className="scene-item relevance">{scenes[currentSceneIndex]["Scene Relevance Score"]}</div>
               {/* <div className="scene-item genre">{scenes[currentSceneIndex].Genre.join(", ")}</div> */}
               <div className="scene-item text-keywords">{scenes[currentSceneIndex]["Detailed Keywords"]["Keywords from Text"].join(", ")}</div>
               <div className="scene-item image-keywords">{scenes[currentSceneIndex]["Detailed Keywords"]["Keywords from Text and Images"].join(", ")}</div>
+              <div className="scene-item relevance">{scenes[currentSceneIndex]["Scene Relevance Score"]}</div>
               {/* {
 
                 {scenes.map((scene, index) => (

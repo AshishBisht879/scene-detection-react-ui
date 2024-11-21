@@ -1,46 +1,47 @@
-.scene_intro_list{
-    padding: 10px;
+.scene_intro_list {
+  padding: 10px;
 }
 
-/* .scene_list_container{
-    height: 100%;
-    overflow-y: auto;
-    display: block;
-} */
-
-.scene_item{
-    padding:10px;
-    text-align: start;
-    position: relative;
-    scroll-behavior: smooth;
-    background-color: #ffffff;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.scene_list_container {
+  height: 100%;
+  overflow-y: auto;
+  display: block;
+  padding: 6px 2px;
 }
 
-span{
-  margin: 4px;
+.scene_item {
+  padding: 10px;
+  text-align: start;
+  position: relative;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  overflow: hidden;
+  height: 50px; /* Initial height */
+  transition: height 0.3s ease-in-out; /* Smooth transition on hover */
 }
-
 
 .scene_item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-
-.highlight{
-    background-color: #e3f2fd;
-  border-left: 3px solid #007bff;
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+  height: 150px; /* Expanded height on hover */
 }
 
 
-@media (max-width: 768px) { /* Adjust the breakpoint as needed */
-    .scene_item {
-      flex-direction: column;
-    }
-  }
+.scene_item_content {
+  overflow: hidden; /* Ensure content within the item is also clipped */
+}
+
+.scene_item div {
+  margin-bottom: 4px;
+}
+
+.highlight {
+  background-color: #e3f2fd;
+  border-left: 3px solid #007bff;
+  box-shadow: 4px 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.info_title{
+  font-weight: 500;
+}

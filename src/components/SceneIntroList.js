@@ -48,18 +48,21 @@ const SceneIntroList = ({ scenes, currentTime, onSceneDurationClick, className }
 
           // Check if the current scene is playing (highlight if the current time is within the scene's start and end time)
           const isActive = currentTime >= startTime && currentTime < endTime;
+
           return (
             <div
               key={index}
               className={`${sceneIntroCss.scene_item} ${isActive ? sceneIntroCss.highlight : ''}`}
-              onClick={() => handleSceneClick(index)} // When clicked, set the video time to the scene's start time
+              onClick={() => handleSceneClick(index)}
             >
-              <span>Scene: {scene.SceneIdx}</span>
-              <span>Relevance: {scene["Scene Relevance Score"]}</span>
-              <br />
-              <span>
-                Keywords: {scene["Detailed Keywords"]["Keywords from Text"].join(", ")}
-              </span>
+              <div className={sceneIntroCss.scene_item_content}>
+                <div><span className={sceneIntroCss.info_title}>Scene:</span> {scene.SceneIdx}</div>
+                <div><span className={sceneIntroCss.info_title}>Relevance:</span> {scene["Scene Relevance Score"]}</div>
+                <div><span className={sceneIntroCss.info_title}>Context:</span> {scene["Detailed Keywords"]["Keywords from Text"].join(", ")}</div>
+                <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  <span className={sceneIntroCss.info_title}>Keywords:</span> {scene["Detailed Keywords"]["Keywords from Text and Images"].join(", ")}
+                </div>
+              </div>
             </div>
           );
         })}

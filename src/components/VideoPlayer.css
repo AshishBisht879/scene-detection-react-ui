@@ -9,6 +9,7 @@ video {
   max-width: 100%;
   height: 95%;
   object-fit: contain;
+  background-color: black;
 }
 
 .scene_segment_bar {
@@ -21,13 +22,13 @@ video {
 }
 
 .seek_bar_scene {
-  background-color: #848382;
-  border-left: 1px solid #050505; 
+  background-color: #888787;
+  border-left: 1px solid #000000; 
 }
 
 
 
 .seek_bar_scene.active {
-  background-color: lightgreen;
+  background-color: #555555;
 }
 

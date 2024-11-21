@@ -2,7 +2,8 @@
 html, body {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-style: normal;
+  font-style:normal;
+  font-size:93%;
   margin: 0;
 }
 
@@ -21,7 +22,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #555;
   margin: 10px 0;
   font-weight: 500;
