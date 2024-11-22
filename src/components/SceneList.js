@@ -10,9 +10,11 @@ const SceneList = ({ scenes, currentTime,className }) => {
       const [hours, minutes, seconds] = time.split(':').map(Number);
       return hours * 3600 + minutes * 60 + seconds;
     });
-
-    return currentTime >= startTime && currentTime < endTime;
+    console.log("Looking for",currentTime,(duration),[startTime, endTime])
+    return currentTime >= startTime && currentTime <= endTime;
   });
+
+  console.log("Scene Index",currentSceneIndex)
 
   useEffect(() => {
     // Scroll the scene list to bring the current scene to the top
@@ -39,7 +41,7 @@ const SceneList = ({ scenes, currentTime,className }) => {
           {/* <div className="header-item genre-header">Genre</div> */}
           <div className="header-item text-keywords-header">Scene Context</div>
           <div className="header-item image-keywords-header">Keywords</div>
-          <div className="header-item relevance-header">Relevance Score</div>
+          <div className="header-item relevance-header">Relevance</div>
         </div>
         <div className="scene-column" ref={sceneListRef}>
         <div className="scene-item scene-idx">{scenes[currentSceneIndex].SceneIdx}</div>

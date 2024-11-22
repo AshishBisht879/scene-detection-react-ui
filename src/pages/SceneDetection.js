@@ -45,7 +45,7 @@ const SceneDetection = () => {
 
   return (
     <div className={`scene-detection ${selectedVideo ? 'video-selected' : ''}`}>
-      <h1>Scene Detection</h1>
+      <h1>Scene Contextualization</h1>
 
       <div className={`dropdown-container ${selectedVideo ? 'top-right' : 'center'}`}>
         <VideoList videos={videos} onSelect={handleVideoSelect} />

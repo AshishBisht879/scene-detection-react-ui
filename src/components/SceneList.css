@@ -1,9 +1,10 @@
 /* Container for the scene list */
 .scene-info {
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;  */
-  background-color: #f9f9f9;
-  margin: 5px;
+  /* background-color: #f9f9f9; */
+  margin-left: 5px;
   place-items: center;
+  min-height: 110px;
 }
 
 h3 {
