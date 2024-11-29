@@ -1,0 +1,15 @@
+.seek-bar{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 1px;
+}
+.seek-bar-segment{
+    box-sizing: border-box;
+    height: 10px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+}
+
+.active{
+    background-color: #bbbbbb;
+}

@@ -1,21 +1,17 @@
-.video-player {
-    margin:auto 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-  }
-  
-  .video-player h3{
-    margin-top: 0px;
-    margin-bottom: 3px;
-    text-align: left;
-  }
-  
-  video {
-    max-width:90%;
-    width:800px;
-    border : 2px solid black;
-    border-radius: 15px;
-  }
+.video_player_container {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    overflow: hidden; /* Hide overflow to ensure video stays within bounds */
+}
+
+.video_player {
+   width: auto;
+   max-height: 100%;
+   max-width: 100%;
+   object-fit: contain; /* Ensures the video scales to fit the container, maintaining aspect ratio */
+}

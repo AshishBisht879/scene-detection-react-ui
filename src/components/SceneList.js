@@ -1,65 +1,60 @@
-import React, { useEffect, useRef } from 'react';
-import './SceneList.css';
+import React from 'react';
+import style from './SceneList.module.css';
+import ConditionalRender from '../utils/ConditionalRender';
 
-const SceneList = ({ scenes, currentTime }) => {
-  const sceneListRef = useRef(null);
-
-  // Determine the index of the currently playing scene
-  const currentSceneIndex = scenes.findIndex(scene => {
-    const duration = Array.isArray(scene.Scene) ? scene.Scene[0] : scene.Scene;
-    const [startTime, endTime] = duration.split('-').map(time => {
-      const [hours, minutes, seconds] = time.split(':').map(Number);
-      return hours * 3600 + minutes * 60 + seconds;
-    });
-
-    return currentTime >= startTime && currentTime <= endTime;
-  });
-
-  useEffect(() => {
-    // Scroll the scene list to bring the current scene to the top
-    if (sceneListRef.current && currentSceneIndex !== -1) {
-      const container = sceneListRef.current;
-      const sceneElement = container.children[currentSceneIndex];
-      if (sceneElement) {
-        // Scroll so that the scene element becomes the first visible element
-        container.scrollTo({
-          top: sceneElement.offsetTop,
-          behavior: 'smooth',
-        });
-      }
+const SceneList = React.memo(({ scenes, currentSceneIndex, onSceneClick }) => {
+    if (!Array.isArray(scenes) || scenes.length === 0) {
+        return <div className="no_scene_info">Scene Data Not Available</div>;
     }
-  }, [currentSceneIndex, currentTime]);
 
-  return (
-    <div className="scene-info">
-      <h3>Scene Information</h3>
-      <div className="scene-container">
-        <div className="header-row">
-          <div className="header-item scene-idx-header">Scene</div>
-          <div className="header-item duration-header">Time Duration</div>
-          <div className="header-item relevance-header">Relevance Score</div>
-          <div className="header-item genre-header">Genre</div>
-          <div className="header-item text-keywords-header">Text Keywords</div>
-          <div className="header-item image-keywords-header">Image & Text Keywords</div>
+    return (
+        <div className='scene_list'>
+            {scenes.map((scene, index) => (
+                <div
+                    key={index}
+                    className={`${style.scene_item} ${index === currentSceneIndex ? style.active : ''}`}
+                    onClick={() => onSceneClick(index)}
+                >
+                    <h4>Scene: {scene.SceneIdx}</h4>
+
+                    {/* Conditional rendering for Scene Relevance Score */}
+                    <ConditionalRender data={scene['Scene Relevance Score']} isArray>
+                        {(relevance) => (
+                            <p><span>Relevance:</span>{relevance[0]}</p>
+                        )}
+                    </ConditionalRender>
+
+                    {/* Conditional rendering for Keywords */}
+                    <ConditionalRender data={scene['Keywords']} isArray>
+                        {(keywords) => (
+                            <p><span>Keywords:</span> {keywords.join(', ')}</p>
+                        )}
+                    </ConditionalRender>
+
+                    {/* Conditional rendering for Mood/Emotions */}
+                    <ConditionalRender data={scene['Mood/Emotions']} isArray>
+                        {(emotions) => (
+                            <p><span>Mood/Emotions:</span> {emotions.join(', ')}</p>
+                        )}
+                    </ConditionalRender>
+
+                    {/* Conditional rendering for Locale */}
+                    <ConditionalRender data={scene['Locale']} isArray>
+                        {(locale) => (
+                            <p><span>Locale:</span> {locale.join(', ')}</p>
+                        )}
+                    </ConditionalRender>
+
+                    {/* Conditional rendering for Context */}
+                    <ConditionalRender data={scene['Context']} isString>
+                        {(context) => (
+                            <p><span>Context:</span>{context}</p>
+                        )}
+                    </ConditionalRender>
+                </div>
+            ))}
         </div>
-        <div className="scene-columns" ref={sceneListRef}>
-          {scenes.map((scene, index) => (
-            <div
-              key={index}
-              className={`scene-column ${index === currentSceneIndex ? 'highlight' : ''}`}
-            >
-              <div className="scene-item scene-idx">{scene.SceneIdx}</div>
-              <div className="scene-item duration">{scene.Scene}</div>
-              <div className="scene-item relevance">{scene["Scene Relevance Score"]}</div>
-              <div className="scene-item genre">{scene.Genre.join(", ")}</div>
-              <div className="scene-item text-keywords">{scene["Detailed Keywords"]["Keywords from Text"].join(", ")}</div>
-              <div className="scene-item image-keywords">{scene["Detailed Keywords"]["Keywords from Text and Images"].join(", ")}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+    );
+});
 
 export default SceneList;

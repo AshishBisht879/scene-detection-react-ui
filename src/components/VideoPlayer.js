@@ -1,45 +1,42 @@
-import React, { useRef, useEffect } from 'react';
-import './VideoPlayer.css';
+import React, { useEffect, useRef } from "react";
+import "./VideoPlayer.css";
 
-const VideoPlayer = ({ video, seekTo, onTimeUpdate }) => {
+const VideoPlayer = ({ video, currentTime, dispatch }) => {
   const videoRef = useRef(null);
+  const lastDispatchedTime = useRef(0);
 
-  useEffect(() => {
-    // Seek to the new time whenever 'seekTo' changes
-    if (videoRef.current && seekTo > 0) {
-      const videoElement = videoRef.current;
-      const seekToTime = () => {
-        videoElement.currentTime = seekTo;
-      };
-
-      // If the video is ready, apply the seek immediately
-      if (videoElement.readyState >= 2) {
-        seekToTime();
-      } else {
-        // Wait until metadata is loaded to seek
-        videoElement.addEventListener('loadedmetadata', seekToTime, { once: true });
+  // Throttle state updates to reduce unnecessary dispatches
+  const handleVideoTimeUpdate = () => {
+    if (videoRef.current) {
+      const videoCurrentTime = videoRef.current.currentTime;
+      if (Math.abs(videoCurrentTime - lastDispatchedTime.current) >= 1) {
+        lastDispatchedTime.current = videoCurrentTime;
+        dispatch({ type: "SET_CURRENT_TIME", payload: videoCurrentTime });
       }
     }
-  }, [seekTo]);
+  };
 
   useEffect(() => {
-    const handleTimeUpdate = () => {
-      if (onTimeUpdate && videoRef.current) {
-        onTimeUpdate(videoRef.current.currentTime);
+    // Prevent seeking if the difference between the currentTime and player's current time is small
+    if (videoRef.current) {
+      const playerTime = videoRef.current.currentTime;
+      if (Math.abs(playerTime - currentTime) > 1) {
+        videoRef.current.currentTime = currentTime;
       }
-    };
-
-    const videoElement = videoRef.current;
-    videoElement.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      videoElement.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, [onTimeUpdate]);
+    }
+  }, [currentTime]);
 
   return (
-    <div className="video-player">
-      <video ref={videoRef} src={video?.url || ''} controls />
+    <div className="video_player_container">
+      <video
+        ref={videoRef}
+        className="video_player"
+        src={video.url}
+        controls
+        autoPlay
+        onTimeUpdate={handleVideoTimeUpdate}
+        onSeeked={handleVideoTimeUpdate}
+      />
     </div>
   );
 };

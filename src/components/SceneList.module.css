@@ -1,0 +1,56 @@
+.scene_list {
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.scene_item {
+    padding: 10px;
+    /* display: flex;
+    flex-direction: column; */
+    height: 60px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin: 0;
+    margin: 7px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    scroll-behavior: smooth;
+    transition: height 0.3s ease-in-out;
+    /* Smooth transition on hover */
+}
+
+.scene_item:hover {
+    height: 150px;
+    /* Expanded height on hover */
+}
+
+.scene_item *{
+    margin: 0;
+    padding: 0;
+}
+.active {
+    background-color: #e3f2fd;
+    border-left: 3px solid #007bff;
+    box-shadow: 4px 4px 12px rgba(0, 123, 255, 0.4);
+}
+
+.scene_item span{
+    font-weight: 550;
+}
+
+.scene_item>p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: width 0.3s ease;
+}
+
+.scene_item:hover > p:last-child {
+    height: 45%;
+    white-space: wrap;
+    text-overflow: ellipsis;
+}
+
+h4 {
+    margin: 0;
+    font-weight: 550;
+}
