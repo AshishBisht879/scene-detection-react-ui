@@ -1,13 +1,37 @@
 import React from 'react';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
-import { SceneProvider } from './context/SceneContext'; // import the provider
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { SceneProvider } from './context/SceneContext';
 import SceneContextualization from './pages/SceneContextualization';
 
 const App = () => {
   return (
-    <SceneProvider> {/* Wrap the app or part of the app where you need context */}
-      <SceneContextualization />
-    </SceneProvider>
+    <Router>
+      <Routes>
+
+
+        {/* <Route
+          path="/"
+          element={
+            <SceneProvider>
+              <SceneContextualization />
+            </SceneProvider>
+          }
+        /> */}
+
+
+        <Route path="/" element={<Navigate to="/scene-contextualization" />} />
+
+        {/* Only wrap the SceneContextualization component with SceneProvider */}
+        <Route
+          path="/scene-contextualization"
+          element={
+            <SceneProvider> {/* Context only available within SceneContextualization */}
+              <SceneContextualization />
+            </SceneProvider>
+          }
+        />
+      </Routes>
+    </Router>
   );
 };
 
