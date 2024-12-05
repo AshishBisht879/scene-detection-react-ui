@@ -110,9 +110,9 @@ html, body {
   }
 
   .scene_info{
-    height: 30%;
+    height: 100%;
     flex-grow: 0;
-    margin: 5px;
+    margin: 1px 5px 1px 5px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     overflow-y: auto;
   }

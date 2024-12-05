@@ -8,7 +8,7 @@ const SceneInfo = ({ currentScene }) => {
   return (
     <div className="scene_container">
       <div className="header_row">
-        <div><span>Scene: </span>{currentScene["SceneIdx"]}</div>
+        {/* <div className='scene_no'><span>{currentScene["SceneIdx"]}</span></div> */}
 
         {/* Conditional rendering for Mood/Emotions */}{/* isArray={true}  default behaviour*/}
         <ConditionalRender data={currentScene["Mood/Emotions"]} isArray>

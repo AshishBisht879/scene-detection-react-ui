@@ -11,5 +11,10 @@
 }
 
 .active{
+    background-color: rgba(0, 123, 255, 0.4);
+}
+
+.seek-bar-segment:hover{
     background-color: #bbbbbb;
+    cursor: pointer;
 }

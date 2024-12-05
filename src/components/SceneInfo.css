@@ -16,6 +16,15 @@
   margin: 5px auto; 
 }
 
+.scene_no{
+  /* border: 1px solid black; */
+  padding:auto 10px;
+  box-sizing: border-box;
+  width: 50px;
+  text-align: center;
+  background-color: #dddddd;
+  border-radius: 4px;
+}
 .scene_container span{
   margin-right:4px;
 }
