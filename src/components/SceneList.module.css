@@ -7,11 +7,12 @@
     padding: 10px;
     /* display: flex;
     flex-direction: column; */
-    height: 60px;
+    line-height: 1.4;
+    height: 68px;
     overflow: hidden;
     border-radius: 4px;
     margin: 0;
-    margin: 7px;
+    margin: 8px 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     scroll-behavior: smooth;
     transition: height 0.3s ease-in-out;
@@ -19,7 +20,7 @@
 }
 
 .scene_item:hover {
-    height: 150px;
+    height: 140px;
     /* Expanded height on hover */
 }
 
@@ -45,7 +46,7 @@
 }
 
 .scene_item:hover > p:last-child {
-    height: 45%;
+    height: 55%;
     white-space: wrap;
     text-overflow: ellipsis;
 }

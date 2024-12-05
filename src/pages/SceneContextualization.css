@@ -11,11 +11,13 @@ html, body {
 
   h1{
     margin: 0;
+    font-size: 20px;
+    padding-left: 5px;
   }
   .custom-select{
     position: relative;
     margin-bottom: 8px;
-    padding: 5px;
+    padding: 3px;
     color: #333333;
     background-color: #eeeeee;
     border: 1px solid #dddddd;

@@ -18,18 +18,18 @@ const SceneList = React.memo(({ scenes, currentSceneIndex, onSceneClick }) => {
                     <h4>Scene: {scene.SceneIdx}</h4>
 
                     {/* Conditional rendering for Scene Relevance Score */}
-                    <ConditionalRender data={scene['Scene Relevance Score']} isArray>
+                    {/* <ConditionalRender data={scene['Scene Relevance Score']} isArray>
                         {(relevance) => (
                             <p><span>Relevance:</span>{relevance[0]}</p>
                         )}
-                    </ConditionalRender>
+                    </ConditionalRender> */}
 
                     {/* Conditional rendering for Keywords */}
-                    <ConditionalRender data={scene['Keywords']} isArray>
+                    {/* <ConditionalRender data={scene['Keywords']} isArray>
                         {(keywords) => (
                             <p><span>Keywords:</span> {keywords.join(', ')}</p>
                         )}
-                    </ConditionalRender>
+                    </ConditionalRender> */}
 
                     {/* Conditional rendering for Mood/Emotions */}
                     <ConditionalRender data={scene['Mood/Emotions']} isArray>
