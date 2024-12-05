@@ -52,8 +52,9 @@ html, body {
     flex-shrink: 0; /* Prevent the header from shrinking */
   }
   
-  .dropdown-container {
-    margin: auto;
+  .header {
+    /* margin: auto; */
+    margin-bottom: 4px;
   }
 
   .top-right {

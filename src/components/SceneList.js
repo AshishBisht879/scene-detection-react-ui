@@ -18,11 +18,24 @@ const SceneList = React.memo(({ scenes, currentSceneIndex, onSceneClick }) => {
                     <h4>Scene: {scene.SceneIdx}</h4>
 
                     {/* Conditional rendering for Scene Relevance Score */}
-                    {/* <ConditionalRender data={scene['Scene Relevance Score']} isArray>
+                    <ConditionalRender data={scene['Scene Relevance Score']} isArray>
                         {(relevance) => (
-                            <p><span>Relevance:</span>{relevance[0]}</p>
+                            <p><span>Relevance : </span>{relevance[0]}</p>
                         )}
-                    </ConditionalRender> */}
+                    </ConditionalRender>
+                    {/* Conditional rendering for Locale */}
+                    <ConditionalRender data={scene['Locale']} isArray>
+                        {(locale) => (
+                            <p><span>Locale : </span> {locale.join(', ')}</p>
+                        )}
+                    </ConditionalRender>
+
+                    {/* Conditional rendering for Mood/Emotions */}
+                    <ConditionalRender data={scene['Mood/Emotions']} isArray>
+                        {(emotions) => (
+                            <p><span>Mood/Emotions : </span> {emotions.join(', ')}</p>
+                        )}
+                    </ConditionalRender>
 
                     {/* Conditional rendering for Keywords */}
                     {/* <ConditionalRender data={scene['Keywords']} isArray>
@@ -31,26 +44,13 @@ const SceneList = React.memo(({ scenes, currentSceneIndex, onSceneClick }) => {
                         )}
                     </ConditionalRender> */}
 
-                    {/* Conditional rendering for Mood/Emotions */}
-                    <ConditionalRender data={scene['Mood/Emotions']} isArray>
-                        {(emotions) => (
-                            <p><span>Mood/Emotions:</span> {emotions.join(', ')}</p>
-                        )}
-                    </ConditionalRender>
-
-                    {/* Conditional rendering for Locale */}
-                    <ConditionalRender data={scene['Locale']} isArray>
-                        {(locale) => (
-                            <p><span>Locale:</span> {locale.join(', ')}</p>
-                        )}
-                    </ConditionalRender>
 
                     {/* Conditional rendering for Context */}
-                    <ConditionalRender data={scene['Context']} isString>
+                    {/* <ConditionalRender data={scene['Context']} isString>
                         {(context) => (
                             <p><span>Context:</span>{context}</p>
                         )}
-                    </ConditionalRender>
+                    </ConditionalRender> */}
                 </div>
             ))}
         </div>
